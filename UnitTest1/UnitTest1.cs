@@ -13,7 +13,7 @@ namespace UnitTest1
         {
 
             // Specify the path to the ChromeDriver executable
-            var chromeDriverPath = "path/to/chromedriver.exe";
+            var chromeDriverPath = " C:\\Users\\JamesBass\\Downloads\chromedriver.exe";
 
             // Create a new instance of the Chrome driver
             var options = new ChromeOptions();
