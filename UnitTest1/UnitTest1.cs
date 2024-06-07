@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
 
-namespace GoogleUITest
+namespace UnitTest1
 {
     [TestClass]
     public class UnitTest1
@@ -11,6 +11,7 @@ namespace GoogleUITest
         [TestMethod]
         public void TestSearchStreetFighterVThenVerifyStreetFighterVIsDisplayed()
         {
+            // Initialize preliminary information
             int waitingTime = 2000;
             By googleSearchBar = By.Name("q");
             By googleSearchButton = By.Name("btnK");
