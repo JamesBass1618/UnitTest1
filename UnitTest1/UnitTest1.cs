@@ -34,6 +34,10 @@ namespace UnitTest1
             // Close the browser
             driver.Quit();
 
+            /*
+             This only works with Google Chrome, Firefox or other Browsers need different packages imported
+             */
+
         }
 
     }
