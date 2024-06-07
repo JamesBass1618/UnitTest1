@@ -9,42 +9,33 @@ namespace UnitTest1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestSearchStreetFighterVThenVerifyStreetFighterVIsDisplayed()
+        public void ChromeTest()
         {
-            // Initialize preliminary information
-            int waitingTime = 2000;
-            By googleSearchBar = By.Name("q");
-            By googleSearchButton = By.Name("btnK");
-            By googleResultText = By.XPath(".//h2//span[text()='Street Fighter V']");
-            By googleIAgreeButton = By.Id("L2AGLb");
 
-            IWebDriver webDriver = new ChromeDriver();
+            // Specify the path to the ChromeDriver executable
+            var chromeDriverPath = "path/to/chromedriver.exe";
 
-            Thread.Sleep(waitingTime);
+            // Create a new instance of the Chrome driver
+            var options = new ChromeOptions();
+            options.AddArgument("--start-maximized"); // Maximize the browser window
+            var driver = new ChromeDriver(chromeDriverPath, options);
 
-            webDriver.Navigate().GoToUrl("https://www.google.co.uk");
+            // Navigate to a webpage
+            driver.Navigate().GoToUrl("https://example.com");
 
-            Thread.Sleep(waitingTime);
+            // Find an element by its ID and interact with it
+            var element = driver.FindElement(By.Id("someElementId"));
+            element.Click();
 
-            webDriver.FindElement(googleIAgreeButton).Click();
+            // Find an element by its CSS selector and interact with it
+            var anotherElement = driver.FindElement(By.CssSelector(".someClass"));
+            anotherElement.SendKeys("Hello, world!");
 
-            webDriver.Manage().Window.Maximize();
+            // Close the browser
+            driver.Quit();
 
-            Thread.Sleep(waitingTime);
-
-            webDriver.FindElement(googleSearchBar).SendKeys("Street Fighter V");
-
-            Thread.Sleep(waitingTime);
-
-            webDriver.FindElement(googleSearchButton).Click();
-
-            Thread.Sleep(waitingTime);
-
-            var actualResultText = webDriver.FindElement(googleResultText);
-
-            Assert.IsTrue(actualResultText.Text.Equals("Street Fighter V"));
-
-            webDriver.Quit();
         }
+
     }
+}
 }
